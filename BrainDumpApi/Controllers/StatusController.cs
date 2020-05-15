@@ -10,7 +10,7 @@ namespace BrainDumpApi.Controllers
 		// GET: /<controller>/
 		public IActionResult Index()
 		{
-			return Ok("Its ok mate lol");
+			return Ok("Its ok mate lol testy");
 		}
 	}
 }
