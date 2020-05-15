@@ -21,6 +21,8 @@ phases:
       - docker push $REPOSITORY_URI:latest
       - docker push $REPOSITORY_URI:$IMAGE_TAG
       - echo Writing definitions file...
-      - printf '[{"name":"project-container","imageUri":"%s"}]' $REPOSITORY_URI:$IMAGE_TAG > taskdefinition.json
+      - printf '[{"name":"brain-dump","imageUri":"%s"}]' $REPOSITORY_URI:$IMAGE_TAG > Dockerrun.aws.json
+      - printf '{"AWSEBDockerrunVersion": "1", "Image": { "Name": "%s", "Update": "true" }, "Ports": [{ "ContainerPort": "80" }]}' $REPOSITORY_URI:$IMAGE_TAG > Dockerrun.aws.json
+    
 artifacts:
-    files: taskdefinition.json
+    files: Dockerrun.aws.json
