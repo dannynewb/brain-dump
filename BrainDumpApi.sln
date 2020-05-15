@@ -10,6 +10,9 @@ EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{81A817CA-6476-4171-83DB-7E45F4CF87B7}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{0E8C55CE-75DD-4CBA-A72F-986D11DE8F3F}"
+	ProjectSection(SolutionItems) = preProject
+		buildspec.yml = buildspec.yml
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
