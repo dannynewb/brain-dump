@@ -20,13 +20,8 @@ namespace BrainDumpApi
 		{
 			services.AddControllers();
 
-			services.Configure<Settings>(options =>
-			{
-				options.ConnectionString 
-					= Configuration.GetSection("MongoConnection:ConnectionString").Value;
-				options.Database 
-					= Configuration.GetSection("MongoConnection:Database").Value;
-			});
+			services.AddOptions();
+			services.Configure<Settings>(this.Configuration);
 
 			services.AddTransient<INoteContext, NoteContext>();
 		}

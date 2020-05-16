@@ -2,7 +2,6 @@
 {
 	public class Settings
 	{
-		public string ConnectionString;
-		public string Database;
+		public MongoConnection MongoConnection { get; set; }
 	}
 }
