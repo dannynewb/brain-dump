@@ -20,7 +20,7 @@ namespace BrainDumpApi
 		{
 			services.AddCors(options =>
 			{
-				options.AddDefaultPolicy(builder =>
+				options.AddPolicy("*", builder =>
 				{
 					builder
 						.AllowAnyOrigin()
@@ -46,11 +46,9 @@ namespace BrainDumpApi
 				app.UseDeveloperExceptionPage();
 			}
 
-			app.UseHttpsRedirection();
-
 			app.UseRouting();
 
-			app.UseCors(options => options.AllowAnyOrigin());
+			app.UseCors("*");
 
 			app.UseAuthorization();
 
