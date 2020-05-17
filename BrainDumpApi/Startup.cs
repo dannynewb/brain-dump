@@ -36,6 +36,8 @@ namespace BrainDumpApi
 			services.Configure<Settings>(this.Configuration);
 
 			services.AddTransient<INoteContext, NoteContext>();
+
+			services.AddMvc();
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -54,7 +56,6 @@ namespace BrainDumpApi
 			{
 				endpoints.MapControllers();
 			});
-
 		}
 	}
 }
