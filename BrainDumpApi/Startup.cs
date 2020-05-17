@@ -18,8 +18,6 @@ namespace BrainDumpApi
 		// This method gets called by the runtime. Use this method to add services to the container.
 		public void ConfigureServices(IServiceCollection services)
 		{
-			services.AddControllers();
-
 			services.AddCors(options =>
 			{
 				options.AddDefaultPolicy(builder =>
@@ -31,6 +29,8 @@ namespace BrainDumpApi
 						.AllowCredentials();
 				});
 			});
+
+			services.AddControllers();
 
 			services.AddOptions();
 			services.Configure<Settings>(this.Configuration);
@@ -50,14 +50,15 @@ namespace BrainDumpApi
 
 			app.UseRouting();
 
-			app.UseAuthorization();
-
 			app.UseCors();
+
+			app.UseAuthorization();
 
 			app.UseEndpoints(endpoints =>
 			{
 				endpoints.MapControllers();
 			});
+
 		}
 	}
 }
