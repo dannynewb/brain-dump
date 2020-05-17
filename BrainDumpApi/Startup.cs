@@ -50,7 +50,7 @@ namespace BrainDumpApi
 
 			app.UseRouting();
 
-			app.UseCors();
+			app.UseCors(options => options.AllowAnyOrigin());
 
 			app.UseAuthorization();
 
