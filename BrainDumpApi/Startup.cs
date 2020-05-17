@@ -20,13 +20,12 @@ namespace BrainDumpApi
 		{
 			services.AddCors(options =>
 			{
-				options.AddPolicy("*", builder =>
+				options.AddDefaultPolicy(builder =>
 				{
 					builder
 						.AllowAnyOrigin()
 						.AllowAnyMethod()
-						.AllowAnyHeader()
-						.AllowCredentials();
+						.AllowAnyHeader();
 				});
 			});
 
@@ -36,8 +35,6 @@ namespace BrainDumpApi
 			services.Configure<Settings>(this.Configuration);
 
 			services.AddTransient<INoteContext, NoteContext>();
-
-			services.AddMvc();
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -50,7 +47,7 @@ namespace BrainDumpApi
 
 			app.UseRouting();
 
-			app.UseCors("*");
+			app.UseCors();
 
 			app.UseEndpoints(endpoints =>
 			{
