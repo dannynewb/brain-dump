@@ -20,7 +20,17 @@ namespace BrainDumpApi
 		{
 			services.AddControllers();
 
-			services.AddCors();
+			services.AddCors(options =>
+			{
+				options.AddDefaultPolicy(builder =>
+				{
+					builder
+						.AllowAnyOrigin()
+						.AllowAnyMethod()
+						.AllowAnyHeader()
+						.AllowCredentials();
+				});
+			});
 
 			services.AddOptions();
 			services.Configure<Settings>(this.Configuration);
