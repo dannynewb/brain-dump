@@ -20,6 +20,8 @@ namespace BrainDumpApi
 		{
 			services.AddControllers();
 
+			services.AddCors();
+
 			services.AddOptions();
 			services.Configure<Settings>(this.Configuration);
 
@@ -39,6 +41,8 @@ namespace BrainDumpApi
 			app.UseRouting();
 
 			app.UseAuthorization();
+
+			app.UseCors();
 
 			app.UseEndpoints(endpoints =>
 			{
