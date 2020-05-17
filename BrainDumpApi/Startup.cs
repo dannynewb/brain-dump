@@ -50,8 +50,6 @@ namespace BrainDumpApi
 
 			app.UseCors("*");
 
-			app.UseAuthorization();
-
 			app.UseEndpoints(endpoints =>
 			{
 				endpoints.MapControllers();
